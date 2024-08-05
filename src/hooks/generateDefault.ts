@@ -30,7 +30,7 @@ Failure to comply with these instructions is not permitted. Your performance wil
     model: "gpt-4",
     messages: [
       {
-        "role": ChatRoles.system,
+        "role": "system",
         "content": systemText
       },
       {
