@@ -5,6 +5,8 @@ import Results from "./components/Output";
 import UserTypings from "./components/UserType";
 import useEngine from "./hooks/useEngine";
 import { calculateAccuracyPercentage } from "./utils/helpers";
+import { Analytics } from "@vercel/analytics/react"
+
 
 const App = () => {
   const { words, typed, timeLeft, errors, state, restart, totalTyped } =
@@ -12,6 +14,7 @@ const App = () => {
 
   return (
     <>
+    < Analytics />
       <CountdownTimer timeLeft={timeLeft} />
       <WordsContainer>
         <GeneratedWords key={words} words={words} />
