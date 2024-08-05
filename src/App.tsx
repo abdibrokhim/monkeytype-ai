@@ -8,7 +8,8 @@ import { calculateAccuracyPercentage } from "./utils/helpers";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
-import TestConfigModal from "./components/TestConfigModal";
+
+
 import ButtonGroup from "./components/ButtonGroup";
 
 const App: React.FC = () => {
