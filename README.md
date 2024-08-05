@@ -14,7 +14,7 @@
     Now AI powered!
 </p>
 <p align="center" style="font-size: 12px;">
-    Open-source, Powered by Falcon and AI71 API Hub.
+    Powered by Falcon and AI71 API Hub.
 </p>
 
 
