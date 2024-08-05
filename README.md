@@ -5,7 +5,7 @@
 
 <!-- markdownlint-disable MD030 -->
 
-# [![Monkeytype AI](.img/a.png)](https://monkeytypeai.vercel.app/)
+# [![Monkeytype AI](./img/promo.png)](https://monkeytypeai.vercel.app/)
 
 <p align="center"><strong>
     A minimalistic, customizable typing test.
