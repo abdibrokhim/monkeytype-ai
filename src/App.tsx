@@ -9,14 +9,13 @@ import { calculateAccuracyPercentage } from "./utils/helpers";
 import { Analytics } from "@vercel/analytics/react"
 
 import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 
 
 import ButtonGroup from "./components/ButtonGroup";
 
 const App: React.FC = () => {
-  const { words, typed, timeLeft, errors, state, restart, totalTyped } = useEngine();
+  const { words, typed, timeLeft, errors, state, restart, totalTyped, loading } = useEngine();
 
   return (
     <>
@@ -32,6 +31,7 @@ const App: React.FC = () => {
      
      <div className="py-8 flex-grow">
         <CountdownTimer timeLeft={timeLeft} />
+        {loading && <p>Loading...</p>}
         <WordsContainer>
           <GeneratedWords key={words} words={words} />
           {/* User typed characters will be overlayed over the generated words */}

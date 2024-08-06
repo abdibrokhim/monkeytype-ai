@@ -6,7 +6,7 @@ const openai = new OpenAI({
   dangerouslyAllowBrowser: true,
 });
 
-async function generateWordDefault() {
+async function generateWordDefault(count: number) {
   const systemText: string = `
 Role and Knowledge:
 
@@ -14,10 +14,10 @@ Assume the role of a creative writer with an extensive vocabulary.
 Utilize your comprehensive knowledge of English words.
 Task Description:
 
-Generate a list of 30 random words.
+Generate a list of ${count} random words all in lowercase.
 Response Criteria:
 
-Only return exactly 30 unique English words.
+Only return exactly ${count} unique English words.
 Ensure the words are varied and demonstrate a broad range of vocabulary.
 The words must be separated by a single space.
 Strict Adherence:
@@ -39,13 +39,17 @@ Failure to comply with these instructions is not permitted. Your performance wil
       }
     ],
     temperature: 1,
-    max_tokens: 256,
+    max_tokens: 128,
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
   });
 
   const generatedContent = response.choices[0].message.content!.trim();
+
+  console.log("-----------------");
+  console.log('generated default words: ', generatedContent);
+  console.log("-----------------");
 
     return generatedContent;
 

@@ -28,13 +28,17 @@ Ensure that each response strictly follows the criteria above. Any deviation fro
       }
     ],
     temperature: 1,
-    max_tokens: 256,
+    max_tokens: 128,
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
   });
 
   const generatedContent = response.choices[0].message.content!.trim();
+
+  console.log("-----------------");
+  console.log('generated words with numbers: ', generatedContent);
+  console.log("-----------------");
 
     return generatedContent;
 

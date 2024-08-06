@@ -42,7 +42,7 @@ Failure to comply with these instructions is not permitted. Your performance wil
       }
     ],
     temperature: 1,
-    max_tokens: 256,
+    max_tokens: 128,
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,

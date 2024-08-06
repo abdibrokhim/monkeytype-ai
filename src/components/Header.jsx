@@ -1,11 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { FaKeyboard, FaCrown, FaInfo, FaCog, FaUser, FaBell, FaSignInAlt, FaCircleNotch } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaInfo } from 'react-icons/fa';
 
 const Navbar = () => {
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
   return (
     <header className="text-gray-200 py-4 flex justify-between items-center">
-      <a className=''>
+      <a href="/" className=''>
         <img
           src="./img/logo-o.png"
           alt="logo"
@@ -13,50 +18,21 @@ const Navbar = () => {
           style={{ width: '250px', height: 'auto' }}
         />
       </a>
-      <nav className="flex space-x-4">
-        {/* <button
-          className="textButton leaderboards view-leaderboards flex items-center space-x-1"
-          title="leaderboard"
+      <nav className="flex space-x-4 relative">
+        <button
+          className="textButton text-black view-about flex justify-center items-center space-x-1"
+          aria-label="Shift-click to toggle custom theme"
+          data-balloon-pos="left"
+          onClick={toggleDropdown}
         >
-          <FaCrown className="icon" />
-        </button> */}
-
-        <button className="textButton text-black view-about flex items-center space-x-1" aria-label="Shift-click to toggle custom theme" data-balloon-pos="left">
           <FaInfo className="icon" />
         </button>
-
-        {/* <Link
-          to="/settings"
-          className="textButton view-settings flex items-center space-x-1"
-          title="settings"
-        >
-          <FaCog className="icon" />
-        </Link>
-        <Link
-          to="/account"
-          className="textButton hidden account view-account  items-center space-x-1"
-        >
-          <div className="loading hidden">
-            <FaCircleNotch className="fas fa-fw fa-spin fa-circle-notch animate-spin" />
+        {showDropdown && (
+          <div className="absolute right-0 mt-6 w-72 p-4 bg-white text-black text-xs rounded shadow-md z-50">
+            <i className="fa-solid fa-quote-left mr-2"></i>
+            inspired by <a href="https://monkeytype.com/" className="text-black font-bold underline" target="_blank" rel="noopener noreferrer">monkeytype.com</a>
           </div>
-          <FaUser className="user" />
-          <div className="avatar hidden"></div>
-          <div className="text"></div>
-          <div className="levelAndBar">
-            <div className="level">
-              <FaCrown className="crown" />
-            </div>
-            <div className="expBar"></div>
-          </div>
-          <FaBell className="bell" />
-        </Link> */}
-        {/* <Link
-          to="/signin"
-          className="textButton view-signin flex items-center space-x-1"
-          title="sign in"
-        >
-          <FaSignInAlt className="icon" />
-        </Link> */}
+        )}
       </nav>
     </header>
   );

@@ -3,8 +3,8 @@ import { countErrors, debug } from "../utils/helpers";
 import useCountdown from "./useCountdownHook";
 import useTypings from "./useType";
 import useWords from "./useWords";
-import completeWord from "./completeWord";
-import completeWordFalcon from "./falcon";
+import completeWord from "../modes/completeWord";
+import completeWordFalcon from "../modes/falcon";
 
 export type State = "start" | "run" | "finish";
 
@@ -14,7 +14,7 @@ const COUNTDOWN_SECONDS = 30;
 const useEngine = () => {
   const [state, setState] = useState<State>("start");
   const { timeLeft, startCountdown, resetCountdown } = useCountdown(COUNTDOWN_SECONDS);
-  const { words, updateWords, setWords } = useWords(NUMBER_OF_WORDS);
+  const { words, updateWords, setWords, loading } = useWords(NUMBER_OF_WORDS);
   const { cursor, typed, clearTyped, totalTyped, resetTotalTyped } = useTypings(state !== "finish");
   const [errors, setErrors] = useState(0);
 
@@ -86,7 +86,7 @@ const useEngine = () => {
     handleMistake();
   }, [typed, words, setWords]);
 
-  return { state, words, typed, errors, restart, timeLeft, totalTyped };
+  return { state, words, typed, errors, restart, timeLeft, totalTyped, loading };
 };
 
 export default useEngine;
