@@ -26,16 +26,16 @@ const Footer = () => {
             <div className="text">linkedin</div>
           </a>
         </div>
-        <div className="right grid grid-cols-1 lg:grid-cols-2">
+        <div className="right grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-0">
           <button className="current-theme textButton flex items-center justify-start text-gray-700 hover:text-black transition" aria-label="Shift-click to toggle custom theme" data-balloon-pos="left">
             <i className="fas fa-fw fa-palette mr-2"></i>
-            <div className="text">serika dark</div>
+            <div className="text">serika light</div>
           </button>
-          <button className="currentVersion textButton flex items-center justify-start text-gray-700 hover:text-black transition">
+          <a href='https://github.com/abdibrokhim/monkeytype-ai' target="_blank" rel="noreferrer noopener" className="currentVersion textButton flex items-center justify-start text-gray-700 hover:text-black transition">
             <i className="fas fa-fw fa-code-branch mr-2"></i>
             <div className="text">version</div>
             <span id="newVersionIndicator" className="ml-2 bg-gray-800 text-white rounded-full px-2">0.1</span>
-          </button>
+          </a>
         </div>
       </div>
     </footer>

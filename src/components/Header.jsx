@@ -12,7 +12,7 @@ const Navbar = () => {
     <header className="text-gray-200 py-4 flex justify-between items-center">
       <a href="/" className=''>
         <img
-          src="./img/logo-o.png"
+          src="/logo-o.png"
           alt="logo"
           className='max-w-full max-h-full'
           style={{ width: '250px', height: 'auto' }}
