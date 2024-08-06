@@ -1,13 +1,18 @@
 import React, { useState } from "react";
+import useMode from "../hooks/useMode";
+import useTimer from "../hooks/useTimer";
 
 const ButtonGroup: React.FC = () => {
   // State to track the selected mode and time
   const [selectedMode, setSelectedMode] = useState<number | null>(null);
-  const [selectedTime, setSelectedTime] = useState<number | null>(1);
+  // const [selectedTime, setSelectedTime] = useState<number | null>(1);
 
   // State to track the visibility of the dropdown
   const [showDropdown, setShowDropdown] = useState(false);
   const [topic, setTopic] = useState("");
+
+  const { handleModeSubmit } = useMode();
+  const { selectedTime, setSelectedTime } = useTimer(15);
 
   // Handle mode button click
   const handleModeClick = (mode: number) => {
@@ -36,10 +41,11 @@ const ButtonGroup: React.FC = () => {
 
   // Handle submit
   const handleSubmit = () => {
-    console.log("=== Submitted ===");
+    console.log("=== handleSubmit ===");
     console.log("submitted: ", topic);
     console.log("selectedMode: ", selectedMode);
     console.log("selectedTime: ", selectedTime);
+    handleModeSubmit(selectedMode, topic);
   };
 
   return (
@@ -94,25 +100,25 @@ const ButtonGroup: React.FC = () => {
       <div className="flex space-x-1 justify-center">
         <button
           className={`px-3 py-1 text-xs ${
-            selectedTime === 1 ? 'bg-black text-white' : 'bg-gray-200 text-black group hover:bg-black hover:text-white'
+            selectedTime === 15 ? 'bg-black text-white' : 'bg-gray-200 text-black group hover:bg-black hover:text-white'
           } group hover:bg-black rounded`}
-          onClick={() => handleTimeClick(1)}
+          onClick={() => handleTimeClick(15)}
         >
           15s
         </button>
         <button
           className={`px-3 py-1 text-xs ${
-            selectedTime === 2 ? 'bg-black text-white' : 'bg-gray-200 text-black group hover:bg-black hover:text-white'
+            selectedTime === 30 ? 'bg-black text-white' : 'bg-gray-200 text-black group hover:bg-black hover:text-white'
           } group hover:bg-black rounded`}
-          onClick={() => handleTimeClick(2)}
+          onClick={() => handleTimeClick(30)}
         >
           30s
         </button>
         <button
           className={`px-3 py-1 text-xs ${
-            selectedTime === 3 ? 'bg-black text-white' : 'bg-gray-200 text-black group hover:bg-black hover:text-white'
+            selectedTime === 45 ? 'bg-black text-white' : 'bg-gray-200 text-black group hover:bg-black hover:text-white'
           } group hover:bg-black rounded`}
-          onClick={() => handleTimeClick(3)}
+          onClick={() => handleTimeClick(45)}
         >
           45s
         </button>

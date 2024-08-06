@@ -5,6 +5,7 @@ import useTypings from "./useType";
 import useWords from "./useWords";
 import completeWord from "../modes/completeWord";
 import completeWordFalcon from "../modes/falcon";
+import useTimer from "./useTimer";
 
 export type State = "start" | "run" | "finish";
 
@@ -13,13 +14,35 @@ const COUNTDOWN_SECONDS = 30;
 
 const useEngine = () => {
   const [state, setState] = useState<State>("start");
-  const { timeLeft, startCountdown, resetCountdown } = useCountdown(COUNTDOWN_SECONDS);
+  const { selectedTime } = useTimer(15);
   const { words, updateWords, setWords, loading } = useWords(NUMBER_OF_WORDS);
   const { cursor, typed, clearTyped, totalTyped, resetTotalTyped } = useTypings(state !== "finish");
   const [errors, setErrors] = useState(0);
-
+  
   const isStarting = state === "start" && cursor > 0;
   const areWordsFinished = cursor === words.length;
+  
+  // TODO: Implement the function to get the time based on index (later)
+  // const getTime = () => {
+  //   if (selectedTime === 1) {
+  //     return 15;
+  //   } else if (selectedTime === 2) {
+  //     return 30;
+  //   } else if (selectedTime === 3) {
+  //     return 45;
+  //   }
+  // }
+  
+  const { timeLeft, startCountdown, resetCountdown, setTimeLeft } = useCountdown(selectedTime);
+
+  
+  useEffect(() => {
+    console.log("\n=== useEngine (useEffect) ===");
+    console.log("selectedTime: ", selectedTime);
+    setTimeLeft(selectedTime);
+  }
+  , [selectedTime]);
+
 
   const restart = useCallback(() => {
     debug("restarting...");

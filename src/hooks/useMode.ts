@@ -1,17 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const useMode = (mode: number) => {
+const useMode = () => {
     const [selectedMode, setSelectedMode] = useState<number | null>(null);
+    const [topic, setTopic] = useState("");
 
-    const handleModeClick = (mode: number) => {
-        if (selectedMode === mode) {
-            setSelectedMode(null);
-        } else {
-            setSelectedMode(mode);
-        }
+    const handleModeSubmit = (mode: any, topic: string) => {
+        console.log("=== handleModeSubmit ===");
+        console.log("mode: ", mode);
+        console.log("topic: ", topic);
+        setSelectedMode(mode);
+        setTopic(topic);
     };
 
-    return { selectedMode, handleModeClick };
+    useEffect(() => {
+        console.log("=== useMode (useEffect) ===");
+        console.log("mode: ", selectedMode);
+        console.log("topic: ", topic);
+
+    }, [selectedMode, topic]);
+
+    return { selectedMode, setSelectedMode, topic, setTopic, handleModeSubmit };
 
 }
 

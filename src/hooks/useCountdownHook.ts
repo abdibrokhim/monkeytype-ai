@@ -51,10 +51,17 @@ const useCountdown = (seconds: number) => {
         clearInterval(intervalRef.current);
       }
     };
+
   }, []);
 
+
+  useEffect(() => {
+    console.log("\n=== useCountdown (useEffect) ===");
+    console.log("seconds: ", seconds);
+  }, [seconds]);
+
   // Return the current time left, and functions to start and reset the countdown
-  return { timeLeft, startCountdown, resetCountdown };
+  return { timeLeft, startCountdown, resetCountdown, setTimeLeft };
 };
 
 export default useCountdown;
