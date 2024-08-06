@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useMode from "../hooks/useMode";
 import useTimer from "../hooks/useTimer";
+import useColors from "../hooks/useColors";
 
 const ButtonGroup: React.FC = () => {
   // State to track the selected mode and time
@@ -48,13 +49,14 @@ const ButtonGroup: React.FC = () => {
     handleModeSubmit(selectedMode, topic);
   };
 
+
   return (
     <div className="flex flex-row space-x-1 justify-center items-center">
       <div className="relative flex space-x-1 justify-center">
         <button
           className={`px-3 py-1 text-xs ${
-            selectedMode === 1 ? 'bg-black text-white' : 'bg-gray-200 text-black group hover:bg-black hover:text-white'
-          } group hover:bg-black rounded`}
+            selectedMode === 1 ? 'bg-[var(--black-color)] text-[var(--white-color)]' : 'bg-[var(--gray-200-color)] text-[var(--gray-500-color)] group hover:bg-[var(--gray-500-color)] hover:text-[var(--gray-200-color)]'
+          } group hover:bg-[var(--black-color)] rounded`}
           aria-label="Shift-click to toggle custom theme"
           data-balloon-pos="left"
           onClick={() => handleModeClick(1)}
@@ -64,8 +66,8 @@ const ButtonGroup: React.FC = () => {
         </button>
         <button
           className={`px-3 py-1 text-xs ${
-            selectedMode === 2 ? 'bg-black text-white' : 'bg-gray-200 text-black group hover:bg-black hover:text-white'
-          } group hover:bg-black rounded`}
+            selectedMode === 2 ? 'bg-[var(--black-color)] text-[var(--white-color)]' : 'bg-[var(--gray-200-color)] text-[var(--gray-500-color)] group hover:bg-[var(--gray-500-color)] hover:text-[var(--gray-200-color)]'
+          } group hover:bg-[var(--black-color)] rounded`}
           aria-label="Shift-click to toggle custom theme"
           data-balloon-pos="left"
           onClick={() => handleModeClick(2)}
@@ -74,19 +76,19 @@ const ButtonGroup: React.FC = () => {
           numbers
         </button>
         {showDropdown && (
-          <div className="absolute left-0 mt-8 w-72 p-4 bg-white text-black text-xs rounded shadow-md z-50">
-            <label className="block text-black font-bold mb-2">enter topic:</label>
+          <div className="absolute left-0 mt-8 w-72 p-4 bg-[var(--white-color)] text-black text-xs rounded shadow-md z-50">
             <div className="flex flex-row gap-2 justify-center items-center">
               <input
                 type="text"
                 value={topic}
                 onChange={handleInputChange}
-                className="w-full px-2 py-1 border rounded focus:outline-none focus:none focus:border-black ouline-none "
+                placeholder="enter topic..."
+                className="w-full px-2 py-1 border rounded focus:outline-none focus:none focus:border-[var(--black-color)] ouline-none "
               />
               <button
                 disabled={!topic}
-                className={`px-3 py-1 rounded bg-gray-200 text-black ${
-                  !topic ? 'cursor-not-allowed' : 'group hover:bg-black hover:text-white'
+                className={`px-3 py-1 rounded bg-[var(--gray-200-color)] text-[var(--black-color)] ${
+                  !topic ? 'cursor-not-allowed' : 'group hover:bg-[var(--black-color)] hover:text-[var(--white-color)]'
                 }`}
                 onClick={handleSubmit}
               >
@@ -100,24 +102,24 @@ const ButtonGroup: React.FC = () => {
       <div className="flex space-x-1 justify-center">
         <button
           className={`px-3 py-1 text-xs ${
-            selectedTime === 15 ? 'bg-black text-white' : 'bg-gray-200 text-black group hover:bg-black hover:text-white'
-          } group hover:bg-black rounded`}
+            selectedTime === 15 ? 'bg-[var(--black-color)] text-[var(--white-color)]' : 'bg-[var(--gray-200-color)] text-[var(--gray-500-color)] group hover:bg-[var(--gray-500-color)] hover:text-[var(--gray-200-color)]'
+          } group hover:bg-[var(--black-color)] rounded`}
           onClick={() => handleTimeClick(15)}
         >
           15s
         </button>
         <button
           className={`px-3 py-1 text-xs ${
-            selectedTime === 30 ? 'bg-black text-white' : 'bg-gray-200 text-black group hover:bg-black hover:text-white'
-          } group hover:bg-black rounded`}
+            selectedTime === 30 ? 'bg-[var(--black-color)] text-[var(--white-color)]' : 'bg-[var(--gray-200-color)] text-[var(--gray-500-color)] group hover:bg-[var(--gray-500-color)] hover:text-[var(--gray-200-color)]'
+          } group hover:bg-[var(--black-color)] rounded`}
           onClick={() => handleTimeClick(30)}
         >
           30s
         </button>
         <button
           className={`px-3 py-1 text-xs ${
-            selectedTime === 45 ? 'bg-black text-white' : 'bg-gray-200 text-black group hover:bg-black hover:text-white'
-          } group hover:bg-black rounded`}
+            selectedTime === 45 ? 'bg-[var(--black-color)] text-[var(--white-color)]' : 'bg-[var(--gray-200-color)] text-[var(--gray-500-color)] group hover:bg-[var(--gray-500-color)] hover:text-[var(--gray-200-color)]'
+          } group hover:bg-[var(--black-color)] rounded`}
           onClick={() => handleTimeClick(45)}
         >
           45s

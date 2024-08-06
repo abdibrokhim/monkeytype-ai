@@ -32,7 +32,7 @@ const Results = ({
         initial={initial}
         animate={animate}
         transition={{ duration: 0.3, delay: 0.5 }}
-        className="text-sm text-green-500"
+        className="text-sm text-[var(--green-color)]"
       >
         <i className="fa-solid fa-rocket mr-2"></i>
         accuracy: {formatPercentage(accuracyPercentage)}
@@ -41,7 +41,7 @@ const Results = ({
         initial={initial}
         animate={animate}
         transition={{ duration: 0.3, delay: 1 }}
-        className="text-sm text-red-500"
+        className="text-sm text-[var(--red-color)]"
       >
         <i className="fa-solid fa-poo mr-2"></i>
         errors: {errors}
@@ -50,7 +50,7 @@ const Results = ({
         initial={initial}
         animate={animate}
         transition={{ duration: 0.3, delay: 1.4 }}
-        className="text-sm text-blue-500"
+        className="text-sm text-[var(--blue-color)]"
       >
         <i className="fa-solid fa-keyboard mr-2"></i>
         typed: {total}

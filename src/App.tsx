@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import GeneratedWords from "./components/GeneratedRandomWords";
 import RestartButton from "./components/RestartButton";
@@ -15,10 +15,10 @@ import Header from "./components/Header";
 import ButtonGroup from "./components/ButtonGroup";
 
 const App: React.FC = () => {
-  const { words, typed, timeLeft, errors, state, restart, totalTyped, loading } = useEngine();
+  const { words, typed, timeLeft, errors, state, restart, totalTyped, loading, appTheme } = useEngine();
 
   return (
-    <>
+    <div className="px-[100px] bg-[var(--white-color)] text-[var(--black-color)]">
     <Analytics />
     <div className="flex flex-col min-h-screen py-[30px]">
       <div className="z-40">
@@ -34,7 +34,6 @@ const App: React.FC = () => {
         {loading && <p>Loading...</p>}
         <WordsContainer>
           <GeneratedWords key={words} words={words} />
-          {/* User typed characters will be overlayed over the generated words */}
           <UserTypings
             className="absolute inset-0"
             words={words}
@@ -42,7 +41,7 @@ const App: React.FC = () => {
           />
         </WordsContainer>
         <RestartButton
-          className="mx-auto mt-10 hover:text-white text-black hover:bg-black"
+          className="mx-auto mt-10 hover:bg-[var(--black-color)] hover:text-[var(--white-color)] text-[var(--black-color)]"
           onRestart={restart}
         />
         <Results
@@ -57,7 +56,7 @@ const App: React.FC = () => {
         <Footer />
       </div>
     </div>
-    </>
+    </div>
   );
 };
 
@@ -71,7 +70,7 @@ const WordsContainer: React.FC<{ children: React.ReactNode }> = ({ children }) =
 
 const CountdownTimer: React.FC<{ timeLeft: number }> = ({ timeLeft }) => {
   return (
-    <h2 className="text-black text-md">
+    <h2 className="[var(--black-color)] text-md">
       <span className="font-bold">{timeLeft}</span>
     </h2>
   );

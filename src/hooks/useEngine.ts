@@ -6,6 +6,7 @@ import useWords from "./useWords";
 import completeWord from "../modes/completeWord";
 import completeWordFalcon from "../modes/falcon";
 import useTimer from "./useTimer";
+import useColors from "./useColors";
 
 export type State = "start" | "run" | "finish";
 
@@ -17,6 +18,7 @@ const useEngine = () => {
   const { words, updateWords, setWords, loading } = useWords(NUMBER_OF_WORDS);
   const { cursor, typed, clearTyped, totalTyped, resetTotalTyped } = useTypings(state !== "finish");
   const [errors, setErrors] = useState(0);
+  const { appTheme } = useColors();
   
   const isStarting = state === "start" && cursor > 0;
   const areWordsFinished = cursor === words.length;
@@ -108,7 +110,7 @@ const useEngine = () => {
     handleMistake();
   }, [typed, words, setWords]);
 
-  return { state, words, typed, errors, restart, timeLeft, totalTyped, loading };
+  return { state, words, typed, errors, restart, timeLeft, totalTyped, loading, appTheme };
 };
 
 export default useEngine;

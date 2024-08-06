@@ -20,7 +20,7 @@ const Navbar = () => {
       </a>
       <nav className="flex space-x-4 relative">
         <button
-          className="textButton text-black view-about flex justify-center items-center space-x-1"
+          className="textButton text-[var(--black-color)] view-about flex justify-center items-center space-x-1"
           aria-label="Shift-click to toggle custom theme"
           data-balloon-pos="left"
           onClick={toggleDropdown}
@@ -28,7 +28,7 @@ const Navbar = () => {
           <FaInfo className="icon" />
         </button>
         {showDropdown && (
-          <div className="absolute right-0 mt-6 w-72 p-4 bg-white text-black text-xs rounded shadow-md z-50">
+          <div className="absolute right-0 mt-6 w-72 p-4 bg-[var(--white-color)] text-[var(--black-color)] text-xs rounded shadow-md z-50">
             <i className="fa-solid fa-quote-left mr-2"></i>
             inspired by <a href="https://monkeytype.com/" className="text-black font-bold underline" target="_blank" rel="noopener noreferrer">monkeytype.com</a>
           </div>
