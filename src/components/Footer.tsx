@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="relative text-center leading-relaxed text-sm text-gray-500">
+    <footer className="relative text-center leading-relaxed text-sm text-gray-500 text-xs">
       <div className="leftright grid grid-cols-2 lg:grid-cols-[1fr_auto] lg:gap-[300px] gap-[100px] user-select-none items-start justify-start">
         <div className="left grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           <a href="mailto:abdibrokhim@gmail.com" className="textButton flex items-center justify-start lg:justify-start my-1 text-gray-700 hover:text-black transition" target="_blank" rel="noreferrer noopener">
@@ -21,7 +21,7 @@ const Footer = () => {
             <i className="fab fa-fw fa-discord mr-2"></i>
             <div className="text">discord</div>
           </a>
-          <a href="https://linekdin.com/in/abdibrokhim" className="textButton flex items-center justify-start lg:justify-start text-gray-700 hover:text-black transition" target="_blank" rel="noreferrer noopener">
+          <a href="https://linkedin.com/in/abdibrokhim" className="textButton flex items-center justify-start lg:justify-start text-gray-700 hover:text-black transition" target="_blank" rel="noreferrer noopener">
             <i className="fab fa-fw fa-linkedin mr-2"></i>
             <div className="text">linkedin</div>
           </a>

@@ -10,31 +10,22 @@ const Navbar = () => {
           src="./img/logo-o.png"
           alt="logo"
           className='max-w-full max-h-full'
-          style={{ width: '200px', height: 'auto' }}
+          style={{ width: '250px', height: 'auto' }}
         />
       </a>
-      {/* <nav className="flex space-x-4">
-        <Link
-          to="/"
-          className="textButton view-start flex items-center space-x-1"
-          title="start test"
-        >
-          <FaKeyboard className="icon" />
-        </Link>
-        <button
+      <nav className="flex space-x-4">
+        {/* <button
           className="textButton leaderboards view-leaderboards flex items-center space-x-1"
           title="leaderboard"
         >
           <FaCrown className="icon" />
-        </button>
-        <Link
-          to="/about"
-          className="textButton view-about flex items-center space-x-1"
-          title="about"
-        >
+        </button> */}
+
+        <button className="textButton text-black view-about flex items-center space-x-1" aria-label="Shift-click to toggle custom theme" data-balloon-pos="left">
           <FaInfo className="icon" />
-        </Link>
-        <Link
+        </button>
+
+        {/* <Link
           to="/settings"
           className="textButton view-settings flex items-center space-x-1"
           title="settings"
@@ -58,15 +49,15 @@ const Navbar = () => {
             <div className="expBar"></div>
           </div>
           <FaBell className="bell" />
-        </Link>
-        <Link
+        </Link> */}
+        {/* <Link
           to="/signin"
           className="textButton view-signin flex items-center space-x-1"
           title="sign in"
         >
           <FaSignInAlt className="icon" />
-        </Link>
-      </nav> */}
+        </Link> */}
+      </nav>
     </header>
   );
 };

@@ -26,37 +26,34 @@ const Results = ({
     <motion.ul
       initial={initial}
       animate={animate}
-      className={`flex flex-col items-center text-primary-400 space-y-3 ${className}`}
+      className={`flex flex-row items-center justify-center text-black gap-8 ${className}`}
     >
       <motion.li
         initial={initial}
         animate={animate}
-        transition={{ duration: 0.3 }}
-        className="text-xl font-semibold"
-      >
-        Results
-      </motion.li>
-      <motion.li
-        initial={initial}
-        animate={animate}
         transition={{ duration: 0.3, delay: 0.5 }}
+        className="text-sm text-green-500"
       >
-        Accuracy: {formatPercentage(accuracyPercentage)}
+        <i className="fa-solid fa-rocket mr-2"></i>
+        accuracy: {formatPercentage(accuracyPercentage)}
       </motion.li>
       <motion.li
         initial={initial}
         animate={animate}
         transition={{ duration: 0.3, delay: 1 }}
-        className="text-red-500"
+        className="text-sm text-red-500"
       >
-        Errors: {errors}
+        <i className="fa-solid fa-poo mr-2"></i>
+        errors: {errors}
       </motion.li>
       <motion.li
         initial={initial}
         animate={animate}
         transition={{ duration: 0.3, delay: 1.4 }}
+        className="text-sm text-blue-500"
       >
-        Typed: {total}
+        <i className="fa-solid fa-keyboard mr-2"></i>
+        typed: {total}
       </motion.li>
     </motion.ul>
   );

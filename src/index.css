@@ -4,6 +4,6 @@
 
 @layer base {
   body {
-    @apply bg-white text-black min-h-screen grid place-items-center	px-[100px] py-[100px] tracking-wider font-mono;
+    @apply bg-white text-black min-h-screen place-items-center px-[100px] tracking-wider font-mono;
   }
 }

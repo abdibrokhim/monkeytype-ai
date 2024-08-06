@@ -20,8 +20,8 @@ const App: React.FC = () => {
 
   return (
     <>
-    < Analytics />
-    <div className="flex flex-col min-h-screen">
+    <Analytics />
+    <div className="flex flex-col min-h-screen py-[30px]">
       <div className="z-40">
         <Header />
       </div>
@@ -30,7 +30,7 @@ const App: React.FC = () => {
         <ButtonGroup />
       </div>
      
-     <div className="py-8">
+     <div className="py-8 flex-grow">
         <CountdownTimer timeLeft={timeLeft} />
         <WordsContainer>
           <GeneratedWords key={words} words={words} />
@@ -63,14 +63,18 @@ const App: React.FC = () => {
 
 const WordsContainer: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <div className="relative text-3xl max-w leading-relaxed break-all mt-3">
+    <div className="relative text-2xl max-w leading-relaxed break-all mt-3">
       {children}
     </div>
   );
 };
 
 const CountdownTimer: React.FC<{ timeLeft: number }> = ({ timeLeft }) => {
-  return <h2 className="text-black font-medium">Time: {timeLeft}</h2>;
+  return (
+    <h2 className="text-black text-md">
+      <span className="font-bold">{timeLeft}</span>
+    </h2>
+  );
 };
 
 export default App;
