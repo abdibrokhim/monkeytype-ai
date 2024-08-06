@@ -15,7 +15,7 @@ Only return a complete and correctly punctuated short paragraph relevant to the 
 Ensure that each response strictly follows the criteria above. Any deviation from the given instructions is unacceptable. Failure to comply with these instructions is not permitted. Your performance will be evaluated based on strict adherence to these guidelines.
   `;
   const response = await openai.chat.completions.create({
-    model: "gpt-4",
+    model: "gpt-4o",
     messages: [
       {
         "role": "system",

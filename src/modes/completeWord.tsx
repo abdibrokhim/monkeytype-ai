@@ -30,7 +30,7 @@ Failure to comply with these instructions is not permitted. Your performance wil
 
   `;
   const response = await openai.chat.completions.create({
-    model: "gpt-4",
+    model: "gpt-4o",
     messages: [
       {
         "role": "system",
