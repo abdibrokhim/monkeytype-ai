@@ -49,10 +49,13 @@ When a user makes a typing mistake, the app instantly regenerates the current wo
 ### Mistakes are no longer a problem, AI will help you
 
 <p align="center">
-<video src='https://firebasestorage.googleapis.com/v0/b/chatwithpdf-30e42.appspot.com/o/shorts%2Fpromo-typing.mp4?alt=media&token=b62e4c0c-a6c7-4490-9a0e-5bc9b77e36cc' width=720></video>
+<video src='./shorts/promo-typing.mp4' width=720></video>
 </p>
 
 ### Imagine your own theme, let AI do the rest
+
+https://raw.githubusercontent.com/abdibrokhim/monkeytype-ai/main/shorts/promo-theme.mp4
+
 
 <p align="center">
 <video src='./shorts/promo-theme.mp4' width=720></video>
@@ -70,7 +73,7 @@ it's so cool, right?
 <video src='./shorts/promo-nums.mp4' width=720></video>
 </p>
 
-
+if video is not rendered, you can watch them by navigating to `./shorts` folder
 
 # 📦 Get Started
 
