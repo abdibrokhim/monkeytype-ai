@@ -54,7 +54,7 @@ When a user makes a typing mistake, the app instantly regenerates the current wo
 
 ### Imagine your own theme, let AI do the rest
 
-https://raw.githubusercontent.com/abdibrokhim/monkeytype-ai/main/shorts/promo-theme.mp4
+[![Watch the video](./img/promo.png)](https://raw.githubusercontent.com/abdibrokhim/monkeytype-ai/main/shorts/promo-theme.mp4)
 
 
 <p align="center">
