@@ -48,13 +48,19 @@ When a user makes a typing mistake, the app instantly regenerates the current wo
 
 ### Mistakes are no longer a problem, AI will help you
 
+https://github.com/user-attachments/assets/fe92566d-0b6c-4724-9f3b-ce7fc57596cc
+
 ### Imagine your own theme, let AI do the rest
 
 https://github.com/user-attachments/assets/ab5c35e3-e5f8-4e1d-a21c-0f49c03c928a
 
 ### Type on your own content, enter what you wish
 
+https://github.com/user-attachments/assets/23bc9cb9-5d63-41f9-84be-f6a29852c899
+
 it's so cool, right?
+
+https://github.com/user-attachments/assets/30451c4a-9490-42af-a77d-16909e92a3be
 
 if video is not rendered, you can watch them by navigating to `./shorts` folder
 
