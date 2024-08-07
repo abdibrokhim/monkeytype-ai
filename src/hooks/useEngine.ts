@@ -1,49 +1,36 @@
 import { useCallback, useEffect, useState } from "react";
 import { countErrors, debug } from "../utils/helpers";
-import useCountdown from "./useCountdownHook";
 import useTypings from "./useType";
-import useWords from "./useWords";
-import completeWord from "../modes/completeWord";
-import completeWordFalcon from "../modes/falcon";
 import useTimer from "./useTimer";
 import useColors from "./useColors";
+import useMode from "./useMode";
+import completeWord from "../modes/completeWord";
 
 export type State = "start" | "run" | "finish";
 
-const NUMBER_OF_WORDS = 12;
-
 const useEngine = () => {
   const [state, setState] = useState<State>("start");
-  const { selectedTime } = useTimer(15);
-  const { words, updateWords, setWords, loading } = useWords(NUMBER_OF_WORDS);
+  // const { selectedTime, timeLeft, startCountdown, resetCountdown, setTimeLeft } = useTimer();
+  const { selectedMode, topic, words, updateWords, setWords, loading } = useMode();
   const { cursor, typed, clearTyped, totalTyped, resetTotalTyped } = useTypings(state !== "finish");
   const [errors, setErrors] = useState(0);
   const { appTheme } = useColors();
+  const { selectedTime, timeLeft, startCountdown, resetCountdown, setTimeLeft, resetTimer } = useTimer();
   
   const isStarting = state === "start" && cursor > 0;
   const areWordsFinished = cursor === words.length;
   
-  // TODO: Implement the function to get the time based on index (later)
-  // const getTime = () => {
-  //   if (selectedTime === 1) {
-  //     return 15;
-  //   } else if (selectedTime === 2) {
-  //     return 30;
-  //   } else if (selectedTime === 3) {
-  //     return 45;
-  //   }
-  // }
-  
-  const { timeLeft, startCountdown, resetCountdown, setTimeLeft } = useCountdown(selectedTime);
-
-  
   useEffect(() => {
-    console.log("\n=== useEngine (useEffect) ===");
-    console.log("selectedTime: ", selectedTime);
-    setTimeLeft(selectedTime);
-  }
-  , [selectedTime]);
+    console.log("=== useEngine (useEffect) ===");
+    console.log("new words: ", words);
+  }, [words]);
 
+  const updateTimer = useCallback(() => {
+    console.log("=== useEngine (updateTimer) ===");
+    console.log("selectedTime: ", selectedTime);
+    resetTimer(selectedTime);
+    console.log("timeLeft: ", timeLeft);
+  }, [selectedTime, resetTimer, ]);
 
   const restart = useCallback(() => {
     debug("restarting...");
@@ -83,7 +70,7 @@ const useEngine = () => {
       updateWords();
       clearTyped();
     }
-  }, [clearTyped, areWordsFinished, updateWords, sumErrors]);
+  }, [clearTyped, areWordsFinished, sumErrors]);
 
   useEffect(() => {
     const handleMistake = async () => {
@@ -108,9 +95,9 @@ const useEngine = () => {
     };
 
     handleMistake();
-  }, [typed, words, setWords]);
+  }, [typed, words, ]);
 
-  return { state, words, typed, errors, restart, timeLeft, totalTyped, loading, appTheme };
+  return { state, words, typed, errors, restart, timeLeft, totalTyped, loading, appTheme, updateTimer };
 };
 
 export default useEngine;

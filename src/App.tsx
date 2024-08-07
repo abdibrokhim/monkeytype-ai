@@ -15,7 +15,7 @@ import Header from "./components/Header";
 import ButtonGroup from "./components/ButtonGroup";
 
 const App: React.FC = () => {
-  const { words, typed, timeLeft, errors, state, restart, totalTyped, loading, appTheme } = useEngine();
+  const { words, typed, timeLeft, errors, state, restart, totalTyped, loading, appTheme, updateTimer } = useEngine();
 
   return (
     <div className="px-[100px] bg-[var(--white-color)] text-[var(--black-color)]">
@@ -26,7 +26,9 @@ const App: React.FC = () => {
       </div>
 
       <div className="py-8">
-        <ButtonGroup />
+        <ButtonGroup
+          onUpdateTimer={updateTimer}
+        />
       </div>
      
      <div className="py-8 flex-grow">

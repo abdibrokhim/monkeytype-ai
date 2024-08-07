@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import useMode from "../hooks/useMode";
 import useTimer from "../hooks/useTimer";
 import useColors from "../hooks/useColors";
+import useEngine from "../hooks/useEngine";
 
-const ButtonGroup: React.FC = () => {
+const ButtonGroup = ({
+  onUpdateTimer: handleRestart,
+} : {
+  onUpdateTimer: () => void;
+}) => {
   // State to track the selected mode and time
   const [selectedMode, setSelectedMode] = useState<number | null>(null);
   // const [selectedTime, setSelectedTime] = useState<number | null>(1);
@@ -13,7 +18,11 @@ const ButtonGroup: React.FC = () => {
   const [topic, setTopic] = useState("");
 
   const { handleModeSubmit } = useMode();
-  const { selectedTime, setSelectedTime } = useTimer(15);
+  const { selectedTime, setSelectedTime, resetTimer } = useTimer();
+
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  // const { updateTimer } = useEngine();
 
   // Handle mode button click
   const handleModeClick = (mode: number) => {
@@ -30,8 +39,11 @@ const ButtonGroup: React.FC = () => {
 
   // Handle time button click
   const handleTimeClick = (time: number) => {
+    console.log("=== handleTimeClick ===");
     setSelectedTime(time);
-    console.log("selectedTime: ", selectedTime);
+    // resetTimer(time);
+    buttonRef.current?.blur();
+    handleRestart();
   };
 
   // Handle input change
@@ -101,6 +113,7 @@ const ButtonGroup: React.FC = () => {
 
       <div className="flex space-x-1 justify-center">
         <button
+          ref={buttonRef}
           className={`px-3 py-1 text-xs ${
             selectedTime === 15 ? 'bg-[var(--black-color)] text-[var(--white-color)]' : 'bg-[var(--gray-200-color)] text-[var(--gray-500-color)] group hover:bg-[var(--gray-500-color)] hover:text-[var(--gray-200-color)]'
           } group hover:bg-[var(--black-color)] rounded`}
@@ -109,6 +122,7 @@ const ButtonGroup: React.FC = () => {
           15s
         </button>
         <button
+          ref={buttonRef}
           className={`px-3 py-1 text-xs ${
             selectedTime === 30 ? 'bg-[var(--black-color)] text-[var(--white-color)]' : 'bg-[var(--gray-200-color)] text-[var(--gray-500-color)] group hover:bg-[var(--gray-500-color)] hover:text-[var(--gray-200-color)]'
           } group hover:bg-[var(--black-color)] rounded`}
@@ -117,6 +131,7 @@ const ButtonGroup: React.FC = () => {
           30s
         </button>
         <button
+          ref={buttonRef} 
           className={`px-3 py-1 text-xs ${
             selectedTime === 45 ? 'bg-[var(--black-color)] text-[var(--white-color)]' : 'bg-[var(--gray-200-color)] text-[var(--gray-500-color)] group hover:bg-[var(--gray-500-color)] hover:text-[var(--gray-200-color)]'
           } group hover:bg-[var(--black-color)] rounded`}

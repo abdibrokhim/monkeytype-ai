@@ -11,6 +11,7 @@ const RestartButton = ({
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const handleClick = () => {
+    console.log('=== restart button ===');
     buttonRef.current?.blur();
     handleRestart();
   };

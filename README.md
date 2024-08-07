@@ -14,7 +14,7 @@
     Now AI powered!
 </p>
 <p align="center" style="font-size: 12px;">
-    Powered by Falcon and AI71 API Hub.
+    Powered by Falcon, GPT-4o and AI71 API Hub.
 </p>
 
 
@@ -35,11 +35,41 @@ When a user makes a typing mistake, the app instantly regenerates the current wo
 
 - minimalistic design, with optional advertisements and focus mode while typing
 - type what you see, see what you type
-- ai generated default mode
+- ai generated content with default mode
 - live errors, wpm, and accuracy displays
-- ai generated punctuation and numbers modes by your chosen topic
+- seemlessly collaborate with ai
+- ai generated content with punctuation and numbers, enter what you wish
 - a variety of test lengths; 15s, 30s, 45s
+- ai generated themes, your imagination matters
+- collaborative themes, save yours for everyone
 - and much more
+
+## 🎥 Watch the promo videos
+
+### Mistakes are no longer a problem, AI will help you
+
+<p align="center">
+<video src='shorts/promo-typing.mp4' width=720></video>
+</p>
+
+### Imagine your own theme, let AI do the rest
+
+<p align="center">
+<video src='shorts/promo-theme.mp4' width=720></video>
+</p>
+
+### Type on your own content, enter what you wish
+
+<p align="center">
+<video src='shorts/promo-puncts.mp4' width=720></video>
+</p>
+
+it's so cool, right?
+
+<p align="center">
+<video src='shorts/promo-nums.mp4' width=720></video>
+</p>
+
 
 
 # 📦 Get Started
@@ -71,9 +101,15 @@ then
 
 open http://localhost:3000 in your browser.
 
+or 
 
+simply visit [Monkeytype AI](https://monkeytypeai.vercel.app/)
 
-### Presentation and Live demo [here](https://docs.google.com/document/d/193Bi2PTdj8ql7Hf89JdESkD1dyt4mH46273oTx2DuMc/edit?usp=sharing)
+# 🦄 Important 🦄
+
+if you think idea is SUPER CREATIVE. Please consider [donate](https://buymeacoffee.com/abdibrokhim/) and i will buy custom domain for this project.
+
+### Presentation and Live demo [here](https://docs.google.com/document/d/1SORmbdm6TMjlaWby9mJBbT5N97G5yBPOpu29G9bZ05w/edit?usp=sharing)
 
 # 🥂 Discord bot
 
