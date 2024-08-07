@@ -49,25 +49,25 @@ When a user makes a typing mistake, the app instantly regenerates the current wo
 ### Mistakes are no longer a problem, AI will help you
 
 <p align="center">
-<video src='shorts/promo-typing.mp4' width=720></video>
+<video src='./shorts/promo-typing.mp4' width=720></video>
 </p>
 
 ### Imagine your own theme, let AI do the rest
 
 <p align="center">
-<video src='shorts/promo-theme.mp4' width=720></video>
+<video src='./shorts/promo-theme.mp4' width=720></video>
 </p>
 
 ### Type on your own content, enter what you wish
 
 <p align="center">
-<video src='shorts/promo-puncts.mp4' width=720></video>
+<video src='./shorts/promo-puncts.mp4' width=720></video>
 </p>
 
 it's so cool, right?
 
 <p align="center">
-<video src='shorts/promo-nums.mp4' width=720></video>
+<video src='./shorts/promo-nums.mp4' width=720></video>
 </p>
 
 
