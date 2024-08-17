@@ -1,12 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaInfo } from 'react-icons/fa';
-
+import { useNavigate } from 'react-router-dom';
+import { auth } from '../db/firebaseConfig';
+import { signOut,onAuthStateChanged } from 'firebase/auth';
 const Navbar = () => {
+  const navigate  = useNavigate()
+  const[isLoggedIn,setIsLoggedIn] = useState(false)
   const [showDropdown, setShowDropdown] = useState(false);
+  
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth,(user) => {
+      setIsLoggedIn(!user)
+    } )
+    return () => unsubscribe()
+  },[] )
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };
+
+  const handleLogin = () => {
+    navigate('/login')
+  }
 
   return (
     <header className="text-gray-200 py-4 flex justify-between items-center">
@@ -19,6 +34,9 @@ const Navbar = () => {
         />
       </a>
       <nav className="flex space-x-4 relative">
+        <button onClick={handleLogin} className='text-black ml-8 mt-1.5 bg-transparent hover:bg-black hover:text-white transition-colors duration-200 px-4 py-2 rounded-md  ' >
+          Login
+        </button>
         <button
           className="textButton text-[var(--black-color)] view-about flex justify-center items-center space-x-1"
           aria-label="Shift-click to toggle custom theme"
