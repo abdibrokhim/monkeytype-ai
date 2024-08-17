@@ -2,7 +2,7 @@ import { defineConfig, loadEnv } from 'vite'
 import OpenAI from "openai";
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: 'sk-proj-Nf1LYmK4GccUdnhq1ds6T3BlbkFJhCOAwysBHBGT7QKSXZl1',
   dangerouslyAllowBrowser: true,
 });
 
